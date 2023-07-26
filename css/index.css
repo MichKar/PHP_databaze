@@ -1,0 +1,84 @@
+/*************** 
+      MAIN 
+****************/
+
+
+main {
+    height: 100vh;
+    background: linear-gradient(rgb(0, 0, 0), rgba(0, 0, 0, 0.437)), url(../img/hogwarts1.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.main-heading img {
+    width: 200px;
+    margin-bottom: 20px;
+    
+}
+.main-heading {
+    text-align: center;
+}
+
+.main-heading h1 {
+    color: white;
+    font-size: 50px;
+    letter-spacing: 2px;
+    animation: fromTop 2s ease-out;
+}
+
+.main-heading h2 {
+    color: white;
+    font-size: 30px;
+    letter-spacing: 1px;
+    animation: fromBottom 2s ease-out;
+}
+
+/*************** 
+   KEYFRAMES
+****************/
+
+@keyframes reveal {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fromTop {
+    0% {
+        opacity: 0;
+        transform: translate(-200px, -200px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0px, 0);
+    }
+}
+
+@keyframes fromBottom {
+    0% {
+        opacity: 0;
+        transform: translate(200px, 200px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0px, 0px);
+    }
+}
+
+
+
+

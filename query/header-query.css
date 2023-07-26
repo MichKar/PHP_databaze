@@ -1,0 +1,39 @@
+@media (max-width: 800px){
+
+    header nav {
+        display: none;
+        position: absolute;
+        top: 70px;
+        background-color: black;
+        width: 100%;
+        color: white;
+    }
+
+    header nav li {
+        display: block;
+        text-align: center;
+        margin-top: 15px;
+        margin-bottom: 10px;
+    }
+
+    .menu-icon {
+        display: block;    
+    }
+
+
+
+    .close, .hamburger {
+        display: none;
+    }
+
+    .active {
+        display: block;
+    }
+
+}
+
+@media (min-width: 800px) {
+    header nav {
+        display: block !important;
+    }
+}
