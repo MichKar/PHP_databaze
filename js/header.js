@@ -8,7 +8,6 @@ const menu = document.querySelector(".menu");
 
 // Po kliknutí na hamburger se zobrazí křížek
 menuIcon.addEventListener("click", () => {
-
     if (hamburger.classList.contains("active")) {
         hamburger.classList.remove("active")
         close.classList.add("active")
@@ -18,8 +17,4 @@ menuIcon.addEventListener("click", () => {
         close.classList.remove("active")
         hamburger.classList.add("active")
     }
-
-
-
-
 })

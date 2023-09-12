@@ -1,13 +1,13 @@
 <?php
 
-
 /**
  * Připojení se k databázi
  * 
  * @return object - pro připojení do databáze
  */
 
-function connectionDB(){
+function connectionDB()
+{
     $db_host = "localhost";
     $db_user = "michaela";
     $db_password = "admin123";
@@ -15,12 +15,10 @@ function connectionDB(){
 
     $connection = mysqli_connect($db_host, $db_user, $db_password, $db_name);
 
-    if (mysqli_connect_error()){
+    if (mysqli_connect_error()) {
         echo mysqli_connect_error();
         exit;
-    } 
+    }
 
     return $connection;
 }
-
-

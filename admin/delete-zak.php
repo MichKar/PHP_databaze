@@ -6,7 +6,7 @@ require "../assets/auth.php";
 
 session_start();
 
-if ( !isLoggedIn() ){
+if (!isLoggedIn()) {
     die("Nepovolený přístup");
 }
 
@@ -18,8 +18,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 ?>
 
+
 <!DOCTYPE html>
 <html lang="cs">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -30,9 +32,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <script src="https://kit.fontawesome.com/0fe3234472.js" crossorigin="anonymous"></script>
     <title>Smazat žáka</title>
 </head>
+
 <body>
     <?php require "../assets/admin-header.php"; ?>
-
     <main>
         <section class="delete-form">
             <form method="POST">
@@ -42,10 +44,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             </form>
         </section>
     </main>
-   
     <?php require "../assets/footer.php"; ?>
     <script src="../js/header.js"></script>
 </body>
+
 </html>
-
-

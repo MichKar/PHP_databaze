@@ -1,5 +1,4 @@
-
-<?php 
+<?php
 
 require "url.php";
 
@@ -13,11 +12,12 @@ require "url.php";
  * @return mixed asociativní pole, které obsahuje informace o jednom konkrétním žákovi nebo vrátí null, pokud žák nebyl nalezen
  * 
  */
+
 function getStudent($connection, $id, $columns = "*") {
     $sql = "SELECT $columns
             FROM student
             WHERE id = ?";
-    
+
     $stmt = mysqli_prepare($connection, $sql);
 
     if ($stmt === false) {
@@ -25,13 +25,12 @@ function getStudent($connection, $id, $columns = "*") {
     } else {
         mysqli_stmt_bind_param($stmt, "i", $id);
 
-        if(mysqli_stmt_execute($stmt)) {
+        if (mysqli_stmt_execute($stmt)) {
             $result = mysqli_stmt_get_result($stmt);
             return mysqli_fetch_array($result, MYSQLI_ASSOC);
         }
     }
 }
-
 
 /**
  * 
@@ -48,8 +47,7 @@ function getStudent($connection, $id, $columns = "*") {
  * @return void 
  * 
  */
-function updateStudent($connection, $first_name, $second_name, $age, $life, $college, $id){
-
+function updateStudent($connection, $first_name, $second_name, $age, $life, $college, $id) {
     $sql = "UPDATE student
                    SET first_name = ?,
                        second_name = ?,
@@ -57,15 +55,15 @@ function updateStudent($connection, $first_name, $second_name, $age, $life, $col
                        life = ?,
                        college = ?
                 WHERE id = ?";
-    
+
     $stmt = mysqli_prepare($connection, $sql);
 
     if (!$stmt) {
-            echo mysqli_error($connection);
+        echo mysqli_error($connection);
     } else {
         mysqli_stmt_bind_param($stmt, "ssissi", $first_name, $second_name, $age, $life, $college, $id);
 
-        if(mysqli_stmt_execute($stmt)) {
+        if (mysqli_stmt_execute($stmt)) {
             redirectUrl("/databaze-skola/admin/jeden-zak.php?id=$id");
         }
     }
@@ -81,11 +79,11 @@ function updateStudent($connection, $first_name, $second_name, $age, $life, $col
  * 
  * @return void
  */
-function deleteStudent($connection, $id){
+function deleteStudent($connection, $id) {
     $sql = "DELETE
             FROM student
             WHERE id = ?";
-    
+
     $stmt = mysqli_prepare($connection, $sql);
 
     if ($stmt === false) {
@@ -108,17 +106,17 @@ function deleteStudent($connection, $id){
  * 
  * @return array pole objektů, kde každý objekt je jeden žák  
  */
-function getAllStudents($connection, $columns = "*"){
+function getAllStudents($connection, $columns = "*") {
     $sql = "SELECT $columns 
             FROM student";
 
     $result = mysqli_query($connection, $sql);
-    
+
     if ($result === false) {
         echo mysqli_error($connection);
     } else {
         $allStudents = mysqli_fetch_all($result, MYSQLI_ASSOC);
-        return $allStudents;    
+        return $allStudents;
     }
 }
 
@@ -149,7 +147,7 @@ function createStudent($connection, $first_name, $second_name, $age, $life, $col
     } else {
         mysqli_stmt_bind_param($statement, "ssiss", $first_name, $second_name, $age, $life, $college);
 
-        if(mysqli_stmt_execute($statement)) {
+        if (mysqli_stmt_execute($statement)) {
             $id = mysqli_insert_id($connection);
             redirectUrl("/databaze-skola/admin/jeden-zak.php?id=$id");
         } else {

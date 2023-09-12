@@ -2,7 +2,6 @@
       MAIN 
 ****************/
 
-
 main {
     height: 100vh;
     background: linear-gradient(rgb(0, 0, 0), rgba(0, 0, 0, 0.437)), url(../img/hogwarts1.jpg);
@@ -10,19 +9,17 @@ main {
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    
 }
 
 .main-heading img {
     width: 200px;
     margin-bottom: 20px;
-    
 }
+
 .main-heading {
     text-align: center;
 }
@@ -78,7 +75,3 @@ main {
         transform: translate(0px, 0px);
     }
 }
-
-
-
-

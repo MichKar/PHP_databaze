@@ -22,9 +22,5 @@ if (ini_get("session.use_cookies")) {
 // Finally, destroy the session.
 session_destroy();
 
-
 // Přesměrování na úvodní stranu
 redirectUrl("/databaze-skola/index.php")
-
-
-?>

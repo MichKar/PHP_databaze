@@ -6,7 +6,7 @@ require "../assets/user.php";
 
 session_start();
 
-if($_SERVER["REQUEST_METHOD"] === "POST") {
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     $connection = connectionDB();
 
@@ -15,9 +15,9 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
     $email = $_POST["email"];
     $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
 
-    $id = createUser($connection, $first_name, $second_name,$email, $password);
+    $id = createUser($connection, $first_name, $second_name, $email, $password);
 
-    if(!empty($id)){
+    if (!empty($id)) {
         // Zabraňuje provedení tzv. fixation attack. Více zde: https://owasp.org/www-community/attacks/Session_fixation
         session_regenerate_id(true);
 
